@@ -1,0 +1,61 @@
+<link rel="stylesheet" href="3DRectangle.css">
+<script src="http://code.jquery.com/jquery.js"></script>
+<script>
+$(document).ready(function()
+{
+	$("#front").click(function()
+	{
+		$("#box").removeClass();
+		$("#box").toggleClass("show-front");
+	});
+
+	$("#back").click(function()
+	{
+		$("#box").removeClass();
+		$("#box").toggleClass("show-back");
+	});
+
+	$("#right").click(function()
+	{
+		$("#box").removeClass();
+		$("#box").toggleClass("show-right");
+	});
+
+	$("#left").click(function()
+	{
+		$("#box").removeClass();
+		$("#box").toggleClass("show-left");
+	});
+
+	$("#top").click(function()
+	{
+		$("#box").removeClass();
+		$("#box").toggleClass("show-top");
+	});
+
+	$("#bottom").click(function()
+	{
+		$("#box").removeClass();
+		$("#box").toggleClass("show-bottom");
+	});
+});
+
+</script>
+
+<section class="container">
+	<div id="box" class="show-front">
+		<figure class="front">1</figure>
+		<figure class="back">2</figure>
+		<figure class="right">3</figure>
+		<figure class="left">4</figure>
+		<figure class="top">5</figure>
+		<figure class="bottom">6</figure>
+	</div>
+</section>
+
+<a href="#" id="front">front</a>
+<a href="#" id="back">back</a>
+<a href="#" id="right">right</a>
+<a href="#" id="left">left</a>
+<a href="#" id="top">top</a>
+<a href="#" id="bottom">bottom</a>

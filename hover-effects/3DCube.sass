@@ -1,0 +1,74 @@
+@import "assets/sass/_utils"
+
+*
+	margin: 0px
+	padding: 0px
+
+.container
+	width: 200px
+	height: 200px
+	position: relative
+	@include vendor-prefix(perspective, 1000px)
+	
+	margin: 40px auto
+
+$translate-TBSide: 100px
+$translate-LRSide: 100px
+$translate: 100px
+
+#cube
+	width: 100%
+	height: 100%
+	position: absolute
+	@include vendor-prefix(transform-style, preserve-3d)
+	@include vendor-prefix(transform, translateZ(-100px))
+	@include vendor-prefix(transition, -webkit-transform 0.5s)
+
+	figure
+		width: 196px
+		height: 196px
+		display: block
+		position: absolute
+		border: 2px solid black
+		line-height: 196px
+		font-size: 120px
+		font-weight: bold
+		color: white
+		text-align: center
+		
+	.front
+		@include vendor-prefix(transform, rotateY(0deg) translateZ($translate))
+		background: hsla(0, 100%, 50%, 1)
+		opacity: 1 
+
+	.right
+		@include vendor-prefix(transform, rotateY(90deg) translateZ($translate-LRSide))
+		background: hsla(120, 100%, 50%, 1)
+		opacity: 1
+
+	.left
+		@include vendor-prefix(transform, rotateY(-90deg) translateZ($translate-LRSide))
+		background: hsla(180, 100%, 50%, 1)
+		opacity: 1
+
+	.top
+		@include vendor-prefix(transform, rotateX(90deg) translateZ($translate-TBSide))
+		background: hsla(240, 100%, 50%, 1)
+		opacity: 1
+	.bottom
+		@include vendor-prefix(transform, rotateX(-90deg) translateZ($translate-TBSide))
+		background: hsla(300, 100%, 50%, 1)
+		opacity: 1
+
+	&.show-front .front, &.show-right .right, &.show-left .left, &.show-top .top, &.show-bottom .bottom
+		opacity: 1
+	&.show-front
+		@include vendor-prefix(transform, translateZ(-$translate) rotateY(0deg))
+	&.show-right
+		@include vendor-prefix(transform, translateZ(-$translate-LRSide) rotateY(-90deg))
+	&.show-left
+		@include vendor-prefix(transform, translateZ(-$translate-LRSide) rotateY(90deg))
+	&.show-top
+		@include vendor-prefix(transform, translateZ(-$translate-TBSide) rotateX(-90deg))
+	&.show-bottom
+		@include vendor-prefix(transform, translateZ(-$translate-TBSide) rotateX(90deg))
